@@ -63,7 +63,7 @@ public abstract class FigureColoree {
 	 * @return l'indice dans tab_mem du point se trouvant près d'un carré de sélection.
 	 */
 	public int	carreDeSelection(int x, int y){
-		
+		return 0;
 	}
 	
 	
