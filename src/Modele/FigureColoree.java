@@ -1,5 +1,7 @@
 package Modele;
 
+import Point;
+
 import java.awt.*;
 
 
@@ -41,7 +43,9 @@ public abstract class FigureColoree {
 	 * ainsi que le tableau de mémorisation. La dimensioin de celui-ci étant indiquée par la méthode "nbPoints()".
 	 */
 	public FigureColoree() {
-		
+		tab_mem = new Point[this.nbPoints()];
+		selected = false;
+		couleur = Color.black;
 	}
 	
 			// METHODES
@@ -53,7 +57,13 @@ public abstract class FigureColoree {
 	 * @param g - environnement graphique.
 	 */
 	public void	affiche(Graphics g){
-		
+		if (selected){
+			g.setColor(Color.black);
+			for (int i = 0; i < tab_mem.length; i++){
+				g.fillRect(tab_mem[i].rendreX()-2, tab_mem[i].rendreY()-2, 4, 4);
+				g.setColor(couleur);
+			}
+		}
 	}
 	
 	
