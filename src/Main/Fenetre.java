@@ -1,6 +1,6 @@
 package Main;
 import javax.swing.*;
-
+import java.awt.*;
 import Vue.DessinFigures;
 
 /**
@@ -35,7 +35,13 @@ public class Fenetre extends JFrame {
 			// METHODE PRINCIPALE
 	
 	public static void main (String [] args){
-		
+		JFrame fenetre = new JFrame("Paint");
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		DessinFigures dessin = new DessinFigures();
+		dessin.setPreferredSize(new Dimension(600,600));
+		fenetre.setContentPane(dessin);
+		fenetre.pack();
+		fenetre.setVisible(true);
 	}
 
 }
