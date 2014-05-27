@@ -1,8 +1,11 @@
 package Controleur;
-import java.awt.event.*;
 
-import Modele.FigureColoree;
-import Modele.Point;
+import Vue.*;
+import Modele.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
 
 
 /**
@@ -51,7 +54,18 @@ public class FabricantFigures implements MouseListener{
 		 */
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-
+			if (SwingUtilities.isLeftMouseButton(e)){
+				if (nb_points_cliques < (points_cliques.length - 1)){
+					points_cliques[nb_points_cliques] = new Point (e.getX(), e.getY());
+					nb_points_cliques++;
+				}
+				else { 
+					points_cliques[nb_points_cliques] = new Point ( e.getX(), e.getY() );
+					figure_en_cours_de_fabrication.modifierPoints(points_cliques);
+					((DessinFigures)(e.getSource())).ajoute(figure_en_cours_de_fabrication);
+					((JComponent)(e.getSource())).removeMouseListener(this);
+				}
+			}
 		}
 
 		/**
