@@ -155,6 +155,22 @@ public abstract class FigureColoree {
 			this.tab_mem[i].translation(dx, dy);
 		}
 	}
+
+	/**
+	 * @return the couleur
+	 */
+	public Color getCouleur() {
+		return couleur;
+	}
+
+	/**
+	 * @param couleur the couleur to set
+	 */
+	public void setCouleur(Color c) {
+		this.couleur = c;
+	}
+	
+	
 	
 
 }
