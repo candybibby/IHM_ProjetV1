@@ -40,7 +40,9 @@ public abstract class FigureColoree {
 	 * ainsi que le tableau de mémorisation. La dimensioin de celui-ci étant indiquée par la méthode "nbPoints()".
 	 */
 	public FigureColoree() {
-		
+		tab_mem = new Point[this.nbPoints()];
+		selected = false;
+		couleur = Color.black;
 	}
 	
 			// METHODES
@@ -52,7 +54,13 @@ public abstract class FigureColoree {
 	 * @param g - environnement graphique.
 	 */
 	public void	affiche(Graphics g){
-		
+		if (selected){
+			g.setColor(this.couleur);
+			for (int i = 0; i < tab_mem.length; i++){
+				g.fillRect(tab_mem[i].rendreX()-2, tab_mem[i].rendreY()-2, 4, 4);
+				g.setColor(couleur);
+			}
+		}	
 	}
 	
 	
@@ -63,7 +71,7 @@ public abstract class FigureColoree {
 	 * @return l'indice dans tab_mem du point se trouvant près d'un carré de sélection.
 	 */
 	public int	carreDeSelection(int x, int y){
-		return 0;
+		
 	}
 	
 	
@@ -72,7 +80,7 @@ public abstract class FigureColoree {
 	 * @param c - nouvelle couleur.
 	 */
 	public void	changeCouleur(Color c){
-		
+		this.couleur = c;
 	}
 	
 	
@@ -80,7 +88,7 @@ public abstract class FigureColoree {
 	 * Cette méthode désélectionne la figure.
 	 */
 	public void	deSelectionne(){
-		
+		this.selected = false;
 	}
 	
 	/**
@@ -119,7 +127,7 @@ public abstract class FigureColoree {
 	 * Cette méthode sélectionne la figure.
 	 */
 	public void	selectionne(){
-		
+		this.selected = true;
 	}
 	
 	
@@ -140,7 +148,9 @@ public abstract class FigureColoree {
 	 * @param dy - déplacement sur l'axe des ordonnees.
 	 */
 	public void	translation(int dx, int dy){
-		
+		for (int i = 0; i< this.tab_mem.length; i++){
+			this.tab_mem[i].translation(dx, dy);
+		}
 	}
 	
 
