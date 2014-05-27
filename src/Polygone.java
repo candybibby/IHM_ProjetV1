@@ -30,9 +30,7 @@ public abstract class Polygone extends FigureColoree {
 	 * (fait appel à fillPolygon de la classe Java Polygon)
 	 * @param g		contexte graphique
 	 */
-	private void affiche(Graphics g){
-		
-	}
+	public abstract void affiche(Graphics g);
 	
 	/**
 	 * Méthode retourne vrai si le point dont les
@@ -42,11 +40,7 @@ public abstract class Polygone extends FigureColoree {
 	 * @param y	ordonnée
 	 * @return boolean
 	 */
-	private boolean estDedans(int x, int y){
-		//Modifier
-		
-		return false;
-	}
+	public abstract boolean estDedans(int x, int y);
 	
 	/**
 	 * Méthode modifie le polygone conformément à
@@ -55,9 +49,7 @@ public abstract class Polygone extends FigureColoree {
 	 * @param Point []	tableau contenant les nouveaux points
 	 * de saisie
 	 */
-	private void moidiferPoints(Point[] tab_saisie){
-		
-	}
+	public abstract void moidiferPoints(Point[] tab_saisie);
 	
 	/**
 	 * Méthode retourne en résultat le nombre de
@@ -65,11 +57,7 @@ public abstract class Polygone extends FigureColoree {
 	 * d'un polygone
 	 * @param int 	nombre de clics
 	 */
-	private int nbClics(){
-		//Modifier
-		
-		return 0;
-	}
+	public abstract int nbClics();
 	
 
 }
