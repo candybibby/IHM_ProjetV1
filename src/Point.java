@@ -35,9 +35,10 @@ public class Point {
 	 * @param p2	deuxième point
 	 * @return double	la distance
 	 */
-	private double distance(Point p2){
-		//A FAIRE
-		return 0;
+	public double distance(Point p2){
+		double a = p2.rendreX() - this.rendreX();
+		double b = p2.rendreY() - this.rendreY();
+		return Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 	}
 	
 	/**
@@ -45,7 +46,7 @@ public class Point {
 	 * l'abscisse du point
 	 * @param incx	incrément à appliquer
 	 */
-	private void incrementerX(int incx){
+	public void incrementerX(int incx){
 		this.x += incx;
 	}
 	
@@ -54,7 +55,7 @@ public class Point {
 	 * l'ordonnée du point
 	 * @param incy	incrément à appliquer
 	 */
-	private void incrementerY(int incy){
+	public void incrementerY(int incy){
 		this.y += incy;
 	}
 	
@@ -63,7 +64,7 @@ public class Point {
 	 * Setter de x
 	 * @param x	nouvelle abscisse du point
 	 */
-	private void modifierX(int x){
+	public void modifierX(int x){
 		this.x = x;
 	}
 	
@@ -72,7 +73,7 @@ public class Point {
 	 * Setter de y
 	 * @param y	nouvelle ordonnée du point
 	 */
-	private void modifierY(int y){
+	public void modifierY(int y){
 		this.y = y;
 	}
 	
@@ -81,7 +82,7 @@ public class Point {
 	 * Getter de x
 	 * @return int	l'abscisse du point
 	 */
-	private int rendreX(){
+	public int rendreX(){
 		return this.x;
 	}
 	
@@ -90,7 +91,7 @@ public class Point {
 	 * Getter de y
 	 * @return int	l'ordonnée du point
 	 */
-	private int rendreY(){
+	public int rendreY(){
 		return this.y;
 	}
 	
@@ -99,7 +100,7 @@ public class Point {
 	 * @param dx	déplacement en abscisse
 	 * @param dy	déplacement en ordonnée
 	 */
-	private void translation(int dx, int dy){
+	public void translation(int dx, int dy){
 		this.incrementerX(dx);
 		this.incrementerY(y);
 	}
