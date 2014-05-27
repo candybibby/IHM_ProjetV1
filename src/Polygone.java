@@ -49,7 +49,7 @@ public abstract class Polygone extends FigureColoree {
 	 * @param Point []	tableau contenant les nouveaux points
 	 * de saisie
 	 */
-	public abstract void moidiferPoints(Point[] tab_saisie);
+	public abstract void modiferPoints(Point[] tab_saisie);
 	
 	/**
 	 * Méthode retourne en résultat le nombre de
