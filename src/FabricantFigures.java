@@ -1,5 +1,12 @@
 import java.awt.event.*;
 
+
+/**
+ * Classe implémentant la création de figures géométriques 
+ * via des clics de souris
+ * @author Candy & Camille
+ *
+ */
 public class FabricantFigures implements MouseListener{
 	
 			// ATTRIBUTS
