@@ -37,8 +37,9 @@ public class Point {
 	 * @return double	la distance
 	 */
 	private double distance(Point p2){
-		//A FAIRE
-		return 0;
+		int a = p2.rendreX()-this.rendreX();
+		int b = p2.rendreY()-this.rendreY();
+		return Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 	}
 	
 	/**
