@@ -1,4 +1,7 @@
 package Modele;
+
+
+
 /**
  * Classe Point
  * @author Candy && Camille
@@ -6,6 +9,7 @@ package Modele;
  */
 public class Point {
 
+	
 		//ATTRIBUTS
 	
 	/** Abscisse du point*/
@@ -13,6 +17,7 @@ public class Point {
 	
 	/** Ordonnée du point*/
 	private int y;
+	
 	
 		
 		//CONSTRUCTEUR
@@ -28,6 +33,7 @@ public class Point {
 	}
 	
 	
+	
 		//METHODES
 	
 	/**
@@ -36,46 +42,50 @@ public class Point {
 	 * @param p2	deuxième point
 	 * @return double	la distance
 	 */
-	private double distance(Point p2){
+	public double distance(Point p2){
 		int a = p2.rendreX()-this.rendreX();
 		int b = p2.rendreY()-this.rendreY();
 		return Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 	}
+	
 	
 	/**
 	 * Méthode incrémentant l'abscisse du point
 	 * l'abscisse du point
 	 * @param incx	incrément à appliquer
 	 */
-	private void incrementerX(int incx){
+	public void incrementerX(int incx){
 		this.x += incx;
 	}
+	
 	
 	/**
 	 * Méthode incrémentant l'ordonnée du point
 	 * l'ordonnée du point
 	 * @param incy	incrément à appliquer
 	 */
-	private void incrementerY(int incy){
+	public void incrementerY(int incy){
 		this.y += incy;
 	}
+	
+
+	/**
+	 * Méthode modifiant l'ordonnée du point
+	 * Setter de y
+	 * @param y	nouvelle ordonnée du point
+	 */
+	public void modifierY(int y){
+		this.y = y;
+	}
+	
 	
 	/**
 	 * Méthode modifiant l'abscisse du point
 	 * Setter de x
 	 * @param x	nouvelle abscisse du point
 	 */
-	private void modifierX(int x){
+	public void modifierX(int x){
 		this.x = x;
-	}
-	
-	/**
-	 * Méthode modifiant l'ordonnée du point
-	 * Setter de y
-	 * @param y	nouvelle ordonnée du point
-	 */
-	private void modifierY(int y){
-		this.y = y;
 	}
 	
 	/**
@@ -83,25 +93,27 @@ public class Point {
 	 * Getter de x
 	 * @return int	l'abscisse du point
 	 */
-	private int rendreX(){
+	public int rendreX(){
 		return this.x;
 	}
+	
 	
 	/**
 	 * Méthode renvoyant l'ordonnée du point
 	 * Getter de y
 	 * @return int	l'ordonnée du point
 	 */
-	private int rendreY(){
+	public int rendreY(){
 		return this.y;
 	}
+	
 	
 	/**
 	 * Méthode translatant le point
 	 * @param dx	déplacement en abscisse
 	 * @param dy	déplacement en ordonnée
 	 */
-	private void translation(int dx, int dy){
+	public void translation(int dx, int dy){
 		this.incrementerX(dx);
 		this.incrementerY(y);
 	}
