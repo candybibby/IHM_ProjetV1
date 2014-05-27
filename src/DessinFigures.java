@@ -28,12 +28,39 @@ public class DessinFigures extends JPanel{
 	
 			// CONSTRUCTEUR
 	
-	public DessinFigures(FigureColoree fc) {
+	/**
+	 * Constructeur vide : dessin ne contenant aucune figure.
+	 */
+	public DessinFigures() {
 		
 	}
 	
 	
 			// METHODES
+	
+	/**
+	 * Cette méthode permet d'ajouter une nouvelle figure au dessin.
+	 * @param fc - figure à ajouter au dessin.
+	 */
+	public void ajoute(FigureColoree fc) {
+		
+	}
+	
+	/**
+	 * Cette méthode permet d'initier le mécanisme événementiel de fabrication des figures à la souris (ajout du listener).
+	 * @param fc - forme à construire point par point à la souris
+	 */
+	public void	construit(FigureColoree fc) {
+		
+	}
+	
+	/**
+	 * Cette méthode redessine toutes les figures du dessin.
+	 * @param g - environnement graphique de dessin.
+	 */
+	public void	paintComponent(java.awt.Graphics g) {
+		
+	}
 	
 
 }
