@@ -74,5 +74,6 @@ public class FabricantFigures implements MouseListener{
 			// TODO Auto-generated method stub
 
 		}
+		
 
 }
