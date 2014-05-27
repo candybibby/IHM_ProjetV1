@@ -20,6 +20,7 @@ public abstract class Polygone extends FigureColoree {
 	 * Constructeur vide
 	 */
 	public Polygone() {
+		super();
 		this.p = new Polygon();
 	}
 	
@@ -31,7 +32,9 @@ public abstract class Polygone extends FigureColoree {
 	 * (fait appel à fillPolygon de la classe Java Polygon)
 	 * @param g		contexte graphique
 	 */
-	public abstract void affiche(Graphics g);
+	public void affiche(Graphics g){
+		
+	}
 	
 	/**
 	 * Méthode retourne vrai si le point dont les
@@ -41,7 +44,11 @@ public abstract class Polygone extends FigureColoree {
 	 * @param y	ordonnée
 	 * @return boolean
 	 */
-	public abstract boolean estDedans(int x, int y);
+	public boolean estDedans(int x, int y){
+		
+		//modifier
+		return true;
+	}
 	
 	/**
 	 * Méthode modifie le polygone conformément à
@@ -50,7 +57,9 @@ public abstract class Polygone extends FigureColoree {
 	 * @param Point []	tableau contenant les nouveaux points
 	 * de saisie
 	 */
-	public abstract void modiferPoints(Point[] tab_saisie);
+	public void modifierPoints(Point[] tab_saisie){
+		
+	}
 	
 	/**
 	 * Méthode retourne en résultat le nombre de
@@ -58,7 +67,11 @@ public abstract class Polygone extends FigureColoree {
 	 * d'un polygone
 	 * @param int 	nombre de clics
 	 */
-	public abstract int nbClics();
+	public int nbClics(){
+		
+		//modifer
+		return 0;
+	}
 	
 
 }
