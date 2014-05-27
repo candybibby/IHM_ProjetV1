@@ -15,6 +15,7 @@ public class Quadrilatere extends Polygone {
 	 */
 	public Quadrilatere() {
 		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	
@@ -24,7 +25,7 @@ public class Quadrilatere extends Polygone {
 	@Override
 	public int nbPoints() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 4;
 	}
 
 
