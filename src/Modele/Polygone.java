@@ -73,7 +73,7 @@ public abstract class Polygone extends FigureColoree {
 	public int nbClics(){
 		
 		//modifer
-		return 0;
+		return 4;
 	}
 	
 
