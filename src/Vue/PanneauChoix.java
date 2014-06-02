@@ -106,19 +106,19 @@ public class PanneauChoix extends JPanel{
 				
 				switch (choix_couleur.getSelectedIndex()){
 				case 0 :
-					fc.setCouleur(Color.RED);
+					fc.changeCouleur(Color.RED);
 					break;
 				case 1:
-					fc.setCouleur(Color.GREEN);
+					fc.changeCouleur(Color.GREEN);
 					break;
 				case 2:
-					fc.setCouleur(Color.BLUE);
+					fc.changeCouleur(Color.BLUE);
 					break;
 				case 3 : 
-					fc.setCouleur(Color.YELLOW);
+					fc.changeCouleur(Color.YELLOW);
 					break;
 				default :
-					fc.setCouleur(Color.BLACK);
+					fc.changeCouleur(Color.BLACK);
 					break;
 				}
 			}

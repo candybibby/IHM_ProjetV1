@@ -83,7 +83,8 @@ public abstract class FigureColoree {
 	 * @param c - nouvelle couleur.
 	 */
 	public void	changeCouleur(Color c){
-		this.couleur = c;
+		if (c != null)
+			this.couleur = c;
 	}
 	
 	
@@ -163,13 +164,6 @@ public abstract class FigureColoree {
 		return couleur;
 	}
 
-	/**
-	 * @param couleur the couleur to set
-	 */
-	public void setCouleur(Color c) {
-		this.couleur = c;
-	}
-	
 	
 	
 
