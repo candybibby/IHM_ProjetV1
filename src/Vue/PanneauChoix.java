@@ -73,7 +73,7 @@ public class PanneauChoix extends JPanel{
 			d = new DessinFigures();
 		this.dessin = d;
 		
-	//	choix_couleur.setEnabled(false);
+		choix_couleur.setEnabled(false);
 		choix_couleur.addActionListener(new ActionListener (){
 
 			public void actionPerformed(ActionEvent e) {
@@ -101,6 +101,7 @@ public class PanneauChoix extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (choix_fig.getSelectedIndex()!=0){
+					dessin.ajoute(fc);
 					fc = creeFigure(choix_fig.getSelectedIndex());
 					
 				}
@@ -115,6 +116,7 @@ public class PanneauChoix extends JPanel{
 				fc.changeCouleur(determineCouleur(choix_couleur.getSelectedIndex()));
 				dessin.construit(fc);
 				choix_fig.setEnabled(true);
+				choix_couleur.setEnabled(true);
 				choix_fig.setSelectedIndex(0);
 			}
 		});
