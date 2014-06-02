@@ -21,7 +21,6 @@ public abstract class Polygone extends FigureColoree {
 	 */
 	public Polygone() {
 		super();
-		this.p = new Polygon();
 	}
 	
 	
@@ -33,7 +32,13 @@ public abstract class Polygone extends FigureColoree {
 	 * @param g		contexte graphique
 	 */
 	public void affiche(Graphics g){
-		
+		p= new Polygon();
+		for (int i = 0; i<tab_mem.length; i++){
+			p.addPoint(tab_mem[i].rendreX(), tab_mem[i].rendreY());
+		}
+		g.setColor(couleur);
+		g.fillPolygon(p);
+		super.affiche(g);
 	}
 	
 	/**
@@ -45,9 +50,7 @@ public abstract class Polygone extends FigureColoree {
 	 * @return boolean
 	 */
 	public boolean estDedans(int x, int y){
-		
-		//modifier
-		return true;
+		return (p.contains(x,y));
 	}
 	
 	/**
@@ -58,7 +61,7 @@ public abstract class Polygone extends FigureColoree {
 	 * de saisie
 	 */
 	public void modifierPoints(Point[] tab_saisie){
-		
+		tab_mem = tab_saisie;
 	}
 	
 	/**

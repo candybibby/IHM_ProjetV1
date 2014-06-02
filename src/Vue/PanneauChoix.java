@@ -2,6 +2,8 @@ package Vue;
 
 
 
+
+
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -26,7 +28,7 @@ public class PanneauChoix extends JPanel{
 	private FigureColoree fc;
 	
 	/** Menu déroulant pour choisir la culeur*/
-	private final JComboBox choix_couleur = new JComboBox(new String [] {"rouge", "vert", "bleu", "jaune"});
+	private final JComboBox choix_couleur = new JComboBox(new String [] {"noir", "rouge", "vert", "bleu", "jaune"});
 	
 	/** Menu déroulant pour choisir le type de figure*/
 	private final JComboBox  choix_fig = new JComboBox (new String[] {"quadrilatere", "trait", "cercle", "rectangle"});
@@ -71,6 +73,7 @@ public class PanneauChoix extends JPanel{
 			d = new DessinFigures();
 		this.dessin = d;
 		
+	//	choix_couleur.setEnabled(false);
 		choix_couleur.addActionListener(new ActionListener (){
 
 			public void actionPerformed(ActionEvent e) {
@@ -88,9 +91,44 @@ public class PanneauChoix extends JPanel{
 				}
 			}
 
-				
+		});
+		
+		
+		choix_fig.setEnabled(false);
+		
+		choix_fig.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (choix_fig.getSelectedIndex()!=0){
+					fc = creeFigure(choix_fig.getSelectedIndex());
+					
+				}
+			}
 			
-			
+		});
+		
+		
+		b1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				fc = new Quadrilatere();
+				fc.changeCouleur(determineCouleur(choix_couleur.getSelectedIndex()));
+				dessin.construit(fc);
+				choix_fig.setEnabled(true);
+				choix_fig.setSelectedIndex(0);
+			}
+		});
+		
+		b2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				// tracé à main levée
+			}
+		});
+		
+		b3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				// manipulation de forme
+			}
 		});
 	}
 	
@@ -110,6 +148,8 @@ public class PanneauChoix extends JPanel{
 				case 0:
 					fc = new Quadrilatere();
 					break;
+					
+					//on crée que des quadrilatère dans cette verison
 				case 1 :
 					fc = new Quadrilatere();
 					break;
@@ -124,7 +164,6 @@ public class PanneauChoix extends JPanel{
 					break;
 
 				}
-				repaint ();
 			}
 		});
 		return this.fc;
@@ -146,17 +185,16 @@ public class PanneauChoix extends JPanel{
 				// TODO Auto-generated method stub
 				
 				switch (choix_couleur.getSelectedIndex()){ //index
-				case 0 :
-					
+				case 1 :
 					fc.changeCouleur(Color.RED);
 					break;
-				case 1:
+				case 2:
 					fc.changeCouleur(Color.GREEN);
 					break;
-				case 2:
+				case 3:
 					fc.changeCouleur(Color.BLUE);
 					break;
-				case 3 : 
+				case 4 : 
 					fc.changeCouleur(Color.YELLOW);
 					break;
 				default :
