@@ -40,6 +40,8 @@ public class PanneauChoix extends JPanel{
 	/** Bouton permettant de manipuler une figure */
 	private final JRadioButton b3=new JRadioButton ("Manipulations");
 
+	/** Groupe de boutons */
+	private final ButtonGroup bg = new ButtonGroup();
 	
 		//CONSTRUCTEUR
 	
@@ -48,9 +50,48 @@ public class PanneauChoix extends JPanel{
 	 * @param DessinFigures
 	 */
 	public PanneauChoix(DessinFigures d){
+		setLayout(new BorderLayout());
+		
+		bg.add(b1);
+		bg.add(b2);
+		bg.add(b3);
+	
+		JPanel haut=new JPanel();
+		haut.add(b1);
+		haut.add(b2);
+		haut.add(b3);
+		add (haut, BorderLayout.NORTH);
+		
+		JPanel bas = new JPanel();
+		bas.add(choix_fig);
+		bas.add(choix_couleur);
+		add(bas, BorderLayout.SOUTH);
+		
 		if (d == null)
 			d = new DessinFigures();
 		this.dessin = d;
+		
+		choix_couleur.addActionListener(new ActionListener (){
+
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Color c = determineCouleur(choix_couleur.getSelectedIndex());
+				if (b1.isSelected()&& (fc!=null)){
+					fc.changeCouleur(c);
+					dessin.repaint();
+				}
+				if (b2.isSelected()){
+					
+				}
+				if (b3.isSelected()){
+					// pas de manipulation de forme
+				}
+			}
+
+				
+			
+			
+		});
 	}
 	
 	
@@ -98,14 +139,15 @@ public class PanneauChoix extends JPanel{
 	 * @return Color
 	 */
 	private Color determineCouleur(int index){
-		
+		Color res;
 		choix_couleur.addActionListener(new ActionListener (){
 			
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				switch (choix_couleur.getSelectedIndex()){
+				switch (choix_couleur.getSelectedIndex()){ //index
 				case 0 :
+					
 					fc.changeCouleur(Color.RED);
 					break;
 				case 1:
