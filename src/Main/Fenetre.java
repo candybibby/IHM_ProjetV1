@@ -1,7 +1,7 @@
 package Main;
 import javax.swing.*;
 import java.awt.*;
-import Vue.DessinFigures;
+import Vue.*;
 
 /**
  * Cette classe définit l'interface utilisateur et la méthode main.
@@ -10,7 +10,6 @@ import Vue.DessinFigures;
  */
 public class Fenetre extends JFrame {
 
-	
 	
 			// ATTRIBUTS
 	
@@ -28,20 +27,27 @@ public class Fenetre extends JFrame {
 	 * @param h - hauteur de la fenetre
 	 */
 	public Fenetre(String s, int w, int h) {
-		
+		JFrame fe = new JFrame(s);
+		fe.setPreferredSize(new Dimension(w,h));
+		this.dessin = new DessinFigures();
 	}
 	
 	
 			// METHODE PRINCIPALE
 	
 	public static void main (String [] args){
-		JFrame fenetre = new JFrame("Paint");
+		Fenetre fenetre = new Fenetre("Paint", 800,800);
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		DessinFigures dessin = new DessinFigures();
-		dessin.setPreferredSize(new Dimension(600,600));
-		fenetre.setContentPane(dessin);
+		JPanel general = new JPanel();		//JPanel qui contient tout
+		DessinFigures d = fenetre.dessin;		//JPanel dans lequel on dessine
+		PanneauChoix choix = new PanneauChoix(d);	//JPanel où on choisit les options
+		general.setPreferredSize(new Dimension(800,800));
+		general.setLayout(new BorderLayout());
+		general.add(choix, BorderLayout.NORTH);
+		general.add(d, BorderLayout.CENTER);
+		fenetre.setContentPane(general);
 		fenetre.pack();
 		fenetre.setVisible(true);
+		
 	}
-
 }
