@@ -63,17 +63,14 @@ public class FabricantFigures implements MouseListener{
 			}
 		}
 
+		//Méthodes non utilisées
+		
 		/**
 		 * Méthodes de l'interface MouseListener
 		 * non utilisées.
 		 * @param e - MouseEvent
 		 */
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-
-		}
-		
-		//Méthodes non utilisées
+		public void mouseEntered(MouseEvent e) {}
 		
 		public void mouseReleased(MouseEvent e) {}
 		
