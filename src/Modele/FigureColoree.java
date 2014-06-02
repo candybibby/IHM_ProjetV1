@@ -142,7 +142,7 @@ public abstract class FigureColoree {
 	 * @param indice - indice dans tab_mem du point à modifier.
 	 */
 	public void	transformation(int dx, int dy, int indice){
-		
+		tab_mem [indice].translation(dx, dy);
 	}
 	
 	
