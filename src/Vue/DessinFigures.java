@@ -1,8 +1,9 @@
 package Vue;
 import javax.swing.*;
-
-import Modele.FigureColoree;
-import Modele.Point;
+import java.util.*;
+import Modele.*;
+import java.awt.*;
+import Controleur.*;
 
 /**
  * 
@@ -15,19 +16,10 @@ import Modele.Point;
 public class DessinFigures extends JPanel{
 
 	
-			// ATTRIBUTS
+			// ATTRIBUT
 	
-	
-	/**Figure en cours de fabrication.*/
-	private FigureColoree	figure_en_cours_de_fabrication;
-	
-	/**Accumule le nombre de clics de souris.*/
-	private int	nb_points_cliques;
-	
-	/**Tableau contenant des points créés à partir de clics de souris.*/
-	private Point[]	points_cliques;
-	
-
+	/** Liste de figures colorées*/
+	private ArrayList<FigureColoree> lfg;
 	
 	
 			// CONSTRUCTEUR
@@ -36,7 +28,7 @@ public class DessinFigures extends JPanel{
 	 * Constructeur vide : dessin ne contenant aucune figure.
 	 */
 	public DessinFigures() {
-		
+		this.lfg = new ArrayList<FigureColoree>();
 	}
 	
 	
@@ -47,7 +39,8 @@ public class DessinFigures extends JPanel{
 	 * @param fc - figure à ajouter au dessin.
 	 */
 	public void ajoute(FigureColoree fc) {
-		
+		lfg.add(fc);
+		repaint();
 	}
 	
 	/**
@@ -55,7 +48,9 @@ public class DessinFigures extends JPanel{
 	 * @param fc - forme à construire point par point à la souris
 	 */
 	public void	construit(FigureColoree fc) {
-		
+		FabricantFigures f = new FabricantFigures(fc);
+		this.addMouseListener(f);
+		repaint();
 	}
 	
 	/**
@@ -63,7 +58,12 @@ public class DessinFigures extends JPanel{
 	 * @param g - environnement graphique de dessin.
 	 */
 	public void	paintComponent(java.awt.Graphics g) {
-		
+		super.paintComponent(g);
+		int i = 0;
+		while(i < lfg.size()){
+			lfg.get(i).affiche(g);
+			i++;			
+		}
 	}
 	
 
