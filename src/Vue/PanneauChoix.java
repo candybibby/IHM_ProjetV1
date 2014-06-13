@@ -27,6 +27,8 @@ public class PanneauChoix extends JPanel{
 	/** Figure à construire*/
 	private FigureColoree fc;
 	
+	private Color couleur;
+	
 	/** Menu déroulant pour choisir la culeur*/
 	private final JComboBox choix_couleur = new JComboBox(new String [] {"noir", "rouge", "vert", "bleu", "jaune"});
 	
@@ -84,7 +86,8 @@ public class PanneauChoix extends JPanel{
 					dessin.repaint();
 				}
 				if (b2.isSelected()){
-					
+					dessin.supprimeAuditeur();
+					dessin.traceScribble((determineCouleur(choix_couleur.getSelectedIndex())));
 				}
 				if (b3.isSelected()){
 					// pas de manipulation de forme
@@ -124,6 +127,12 @@ public class PanneauChoix extends JPanel{
 		b2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				// tracé à main levée
+				b1.setSelected(false);
+				b3.setSelected(false);
+				choix_fig.setEnabled(false);
+				choix_couleur.setEnabled(true);
+				dessin.supprimeAuditeur();
+				dessin.traceScribble((determineCouleur(choix_couleur.getSelectedIndex())));
 			}
 		});
 		
@@ -179,8 +188,8 @@ public class PanneauChoix extends JPanel{
 	 * @param int
 	 * @return Color
 	 */
-	private Color determineCouleur(int index){
-		Color res;
+private Color determineCouleur(int index){
+		
 		choix_couleur.addActionListener(new ActionListener (){
 			
 			public void actionPerformed(ActionEvent e) {
@@ -188,27 +197,26 @@ public class PanneauChoix extends JPanel{
 				
 				switch (choix_couleur.getSelectedIndex()){ //index
 				case 1 :
-					fc.changeCouleur(Color.RED);
+					couleur = Color.RED;
 					break;
 				case 2:
-					fc.changeCouleur(Color.GREEN);
+					couleur = Color.GREEN;
 					break;
 				case 3:
-					fc.changeCouleur(Color.BLUE);
+					couleur = Color.BLUE;
 					break;
 				case 4 : 
-					fc.changeCouleur(Color.YELLOW);
+					couleur = Color.YELLOW;
 					break;
 				default :
-					fc.changeCouleur(Color.BLACK);
+					couleur = Color.BLACK;
 					break;
 				}
 			}
 			
 		});
 		
-		//modifier ça
-		return fc.getCouleur();
+		return couleur;
 	}
 	
 	/**

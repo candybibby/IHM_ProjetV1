@@ -1,8 +1,12 @@
 package Vue;
 import javax.swing.*;
+
 import java.util.*;
+
 import Modele.*;
+
 import java.awt.*;
+
 import Controleur.*;
 
 /**
@@ -21,7 +25,7 @@ public class DessinFigures extends JPanel{
 	/** Liste de figures colorées*/
 	private ArrayList<FigureColoree> lfg;
 	
-	
+	Scribble s;
 			// CONSTRUCTEUR
 	
 	/**
@@ -65,6 +69,19 @@ public class DessinFigures extends JPanel{
 			i++;			
 		}
 	}
+
+
+	public void traceScribble(Color c){
+		Graphics cg = this.getGraphics();
+		cg.setColor(c);
+		Scribble trace = new Scribble(cg);
+		this.addMouseListener(trace);
+		this.addMouseMotionListener(trace);
+		this.s = trace;
+	}
 	
+	public void supprimeAuditeur(){
+		
+	}
 
 }
