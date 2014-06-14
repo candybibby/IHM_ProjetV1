@@ -61,7 +61,7 @@ public class DessinFigures extends JPanel{
 	 * Cette méthode redessine toutes les figures du dessin.
 	 * @param g - environnement graphique de dessin.
 	 */
-	public void	paintComponent(java.awt.Graphics g) {
+	public void	paintComponent(Graphics g) {
 		super.paintComponent(g);
 		int i = 0;
 		while(i < lfg.size()){

@@ -105,6 +105,7 @@ public class PanneauChoix extends JPanel{
 				// TODO Auto-generated method stub
 				if (choix_fig.getSelectedIndex()!=0){
 					dessin.ajoute(fc);
+					dessin.supprimeAuditeur();
 					fc = creeFigure(choix_fig.getSelectedIndex());
 					
 				}
@@ -115,14 +116,17 @@ public class PanneauChoix extends JPanel{
 		
 		b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				fc = new Quadrilatere();
+				choix_fig.setSelectedIndex(0);
+				fc = creeFigure(choix_fig.getSelectedIndex());
 				fc.changeCouleur(determineCouleur(choix_couleur.getSelectedIndex()));
 				dessin.construit(fc);
 				choix_fig.setEnabled(true);
 				choix_couleur.setEnabled(true);
-				choix_fig.setSelectedIndex(0);
+				
 			}
 		});
+		b1.setSelected(true);
+		b1.doClick();
 		
 		b2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -139,6 +143,8 @@ public class PanneauChoix extends JPanel{
 		b3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				// manipulation de forme
+				choix_fig.setEnabled(false);
+				dessin.supprimeAuditeur();
 			}
 		});
 	}
@@ -153,6 +159,7 @@ public class PanneauChoix extends JPanel{
 	 * @return FigureColoree
 	 */
 	private FigureColoree creeFigure(int index){
+		fc = new Quadrilatere();
 		choix_fig.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent e){
 				switch (choix_fig.getSelectedIndex()){
@@ -177,7 +184,7 @@ public class PanneauChoix extends JPanel{
 				}
 			}
 		});
-		return this.fc;
+		return fc;
 	}
 		
 		

@@ -15,8 +15,8 @@ public class Scribble extends JPanel implements MouseListener, MouseMotionListen
 	
 	public Scribble(Graphics gr){
 		this.g=gr;
-		this.addMouseListener(this);
-		this.addMouseMotionListener(this);
+		//this.addMouseListener(this);
+		//this.addMouseMotionListener(this);
 	}
 	
 	public void mouseClicked (MouseEvent e){}
@@ -44,4 +44,6 @@ public class Scribble extends JPanel implements MouseListener, MouseMotionListen
 		last_X=e.getX();
 		last_Y=e.getY();
 	}
+	
+	
 }
