@@ -33,7 +33,7 @@ public class PanneauChoix extends JPanel{
 	private final JComboBox choix_couleur = new JComboBox(new String [] {"noir", "rouge", "vert", "bleu", "jaune"});
 	
 	/** Menu déroulant pour choisir le type de figure*/
-	private final JComboBox  choix_fig = new JComboBox (new String[] {"quadrilatere", "trait", "cercle", "rectangle"});
+	private final JComboBox  choix_fig = new JComboBox (new String[] {"quadrilatere"});
 	
 	/** Bouton permettant la création d'un figure*/
 	private final JRadioButton b1=new JRadioButton ("Nouvelle Figure");
@@ -168,7 +168,7 @@ public class PanneauChoix extends JPanel{
 					break;
 					
 					//on crée que des quadrilatère dans cette verison
-				case 1 :
+		/*		case 1 :
 					fc = new Quadrilatere();
 					break;
 				case 2 :
@@ -176,7 +176,7 @@ public class PanneauChoix extends JPanel{
 					break;
 				case 3 :
 					fc = new Quadrilatere();
-					break;
+					break;*/
 				default :
 					fc = new Quadrilatere();
 					break;
